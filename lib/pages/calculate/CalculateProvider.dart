@@ -1,32 +1,36 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class CalculateProvider with ChangeNotifier {
-  String _a = 'aaaaaaaaa';
+  final String _a = 'Chọn ngày quen';
   String get a => _a;
 
-  DateTime _date1 = DateTime(2017, 12, 9);
+  final DateTime _date1 = DateTime(2017, 12, 9);
   DateTime get date1 => _date1;
-  DateTime _date2 = DateTime.now();
+  final DateTime _date2 = DateTime.now();
   DateTime get date2 => _date2;
 
-  dateTime() {
-    int hours = date2.difference(date1).inHours;
-    int day = date2.difference(date1).inDays;
+  String date = '';
 
-    _a = hours.toString();
+  int dayBeen = 0;
 
-    print("$day and $hours");
+  dateTime(context) async {
+    DateTime? pickdate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2030),
+    );
+    if (pickdate != null) {
+      print(pickdate);
+      date = DateFormat('dd-MM-yyyy').format(pickdate);
+      int day = date2.difference(pickdate).inDays;
+      dayBeen = day;
+      DateTime test = DateTime.parse("2022-09-15 00:00:00.000");
+      print("Tét: ${test}");
+    } else
+      print('error');
 
-    notifyListeners();
-  }
-
-  onTap(context) async {
-    DateTime? pcikdate = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(2017),
-        lastDate: DateTime(2024));
     notifyListeners();
   }
 }
