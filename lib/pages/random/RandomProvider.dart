@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-import 'package:test_provider/pages/calculate/CalculatePage.dart';
+import '../calendar/CalendarPage.dart';
 
 class RandomProvider extends ChangeNotifier {
   final String _firstNum = 'Nhập số đầu';
@@ -30,8 +30,8 @@ class RandomProvider extends ChangeNotifier {
   }
 
   go(context) {
-    Navigator.push(
-        context, MaterialPageRoute(builder: ((context) => CalculatePage())));
+    Navigator.push(context,
+        MaterialPageRoute(builder: ((context) => const CalendarPage())));
     notifyListeners();
   }
 }

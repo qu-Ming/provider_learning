@@ -38,17 +38,6 @@ class RandomBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(30.0),
       child: Column(children: [
-        // Text(
-        //   isFirst
-        //       ? stringFirst
-        //       : (num1.text.isEmpty || num2.text.isEmpty)
-        //           ? 'Khong có số vui lòng nhập số vào'
-        //           : context.watch<RandomProvider>().randomNum,
-        //   style: const TextStyle(
-        //       fontFamily: "Poppins",
-        //       fontSize: AppDimens.icon_size_30,
-        //       fontWeight: FontWeight.bold),
-        // ),
         Text(
           isFirst
               ? stringFirst
